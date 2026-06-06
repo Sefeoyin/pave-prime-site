@@ -40,7 +40,7 @@ export default function Navbar() {
       <div className="max-w-[1440px] mx-auto px-6 lg:px-10 flex items-center justify-between">
         {/* Logo — icon only, brand name is baked into the image */}
         <a href="#" className="flex items-center">
-          <div className="relative w-12 h-12">
+          <div className="relative w-16 h-16">
             <Image src="/Logo Icon.png" alt="Pave Prime Realty" fill className="object-contain" />
           </div>
         </a>

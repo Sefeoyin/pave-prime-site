@@ -41,7 +41,7 @@ export default function Footer() {
       {/* Bottom bar — logo icon only, no text */}
       <div className="border-t" style={{ borderColor: "var(--brand-border)" }}>
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10 py-5 flex flex-col lg:flex-row items-center justify-between gap-4">
-          <div className="relative w-8 h-8">
+          <div className="relative w-12 h-12">
             <Image src="/Logo Icon.png" alt="Pave Prime Realty" fill className="object-contain" />
           </div>
           <p className="text-xs" style={{ color: "var(--brand-gray)", fontFamily: "var(--font-dm-sans)" }}>

@@ -17,7 +17,7 @@ function PropertyCard({ prop, index }: { prop: typeof properties[0]; index: numb
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.75, ease: "easeOut", delay: index * 0.1 }}
       className="group rounded-2xl overflow-hidden cursor-pointer"
-      style={{ background: "var(--brand-white)", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", border: "1px solid rgba(255,255,255,0.08)" }}
+      style={{ background: "var(--brand-navy)", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", border: "1px solid rgba(255,255,255,0.08)" }}
       whileHover={{ y: -5, boxShadow: "0 24px 56px rgba(0,0,0,0.18)", transition: { duration: 0.38, ease: "easeOut" } }}
     >
       <div className="relative h-[200px] overflow-hidden">
