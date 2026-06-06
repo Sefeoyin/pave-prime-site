@@ -62,11 +62,11 @@ export default function Projects() {
           </div>
 
           {/* Right: image grid */}
-          <div className="grid grid-cols-[1.4fr_1fr] gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-4">
             {/* Featured */}
-            <motion.div ref={featuredRef} initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 1.05, ease: "easeOut", delay: 0.15 }} className="group relative rounded-2xl overflow-hidden row-span-2 cursor-pointer" style={{ minHeight: "420px" }} whileHover={{ y: -4 }}>
+            <motion.div ref={featuredRef} initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 1.05, ease: "easeOut", delay: 0.15 }} className="group relative rounded-2xl overflow-hidden md:row-span-2 cursor-pointer" style={{ minHeight: "420px" }} whileHover={{ y: -4 }}>
               <motion.div className="relative w-full h-full" style={{ y: imgY }} whileHover={{ scale: 1.04 }} transition={{ duration: 1.1, ease: "easeOut" }}>
-                <Image src="/The Pave Residence.png" alt="The Pave Residence" fill className="object-cover" sizes="30vw" />
+                <Image src="/The Pave Residence.png" alt="The Pave Residence" fill className="object-cover" sizes="(max-width: 768px) 100vw, 30vw" />
               </motion.div>
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 30%, transparent 65%)" }} />
               <span className="absolute top-4 left-4 px-3 py-1.5 rounded text-[11px] font-semibold text-white" style={{ background: "rgba(255,255,255,0.14)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.2)" }}>Featured Project</span>
@@ -80,9 +80,9 @@ export default function Projects() {
             </motion.div>
 
             {sideProjects.map((p, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.75, ease: "easeOut", delay: 0.3 + i * 0.12 }} className="group relative rounded-xl overflow-hidden cursor-pointer" style={{ height: "200px" }} whileHover={{ scale: 1.01 }}>
+              <motion.div key={i} initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.75, ease: "easeOut", delay: 0.3 + i * 0.12 }} className="group relative rounded-xl overflow-hidden cursor-pointer" style={{ height: "240px" }} whileHover={{ scale: 1.01 }}>
                 <motion.div className="relative w-full h-full" whileHover={{ scale: 1.05 }} transition={{ duration: 1, ease: "easeOut" }}>
-                  <Image src={p.image} alt={p.title} fill className="object-cover" sizes="20vw" />
+                  <Image src={p.image} alt={p.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 20vw" />
                 </motion.div>
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.72) 40%, transparent 70%)" }} />
                 <div className="absolute bottom-3 left-3 right-3">

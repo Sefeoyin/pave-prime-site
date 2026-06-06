@@ -39,7 +39,7 @@ export default function Insights() {
               <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.75, ease: "easeOut", delay: i * 0.09 }} className="group cursor-pointer">
                 <div className="relative h-[170px] rounded-xl overflow-hidden mb-4">
                   <motion.div className="relative w-full h-full" whileHover={{ scale: 1.06 }} transition={{ duration: 1, ease: "easeOut" }}>
-                    <Image src={article.image} alt={article.title} fill className="object-cover" sizes="20vw" />
+                    <Image src={article.image} alt={article.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw" />
                   </motion.div>
                 </div>
                 <div className="flex items-center gap-2 mb-2 text-[11px]" style={{ color: "var(--brand-gray)", fontFamily: "var(--font-dm-sans)" }}>
@@ -70,11 +70,11 @@ export default function Insights() {
               <p className="text-sm" style={{ color: "var(--brand-gray)", fontFamily: "var(--font-dm-sans)" }}>Get the latest property updates, market insights, and exclusive offers delivered straight to your inbox.</p>
             </div>
           </div>
-          <div className="flex gap-3 w-full lg:w-auto">
+          <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
             <input type="email" placeholder="Enter your email address" className="flex-1 lg:w-[280px] px-4 py-3 rounded-lg text-sm outline-none border bg-white transition-all duration-200" style={{ borderColor: "var(--brand-border)", fontFamily: "var(--font-dm-sans)" }}
               onFocus={e => { e.target.style.borderColor = "var(--brand-red)"; e.target.style.boxShadow = "0 0 0 3px rgba(200,16,46,0.08)"; }}
               onBlur={e => { e.target.style.borderColor = "var(--brand-border)"; e.target.style.boxShadow = "none"; }} />
-            <motion.button className="px-5 py-3 rounded-lg text-sm font-semibold text-white flex-shrink-0" style={{ background: "var(--brand-red)", fontFamily: "var(--font-dm-sans)" }} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>Subscribe</motion.button>
+            <motion.button className="px-5 py-3 rounded-lg text-sm font-semibold text-white flex-shrink-0 sm:w-auto w-full" style={{ background: "var(--brand-red)", fontFamily: "var(--font-dm-sans)" }} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>Subscribe</motion.button>
           </div>
         </motion.div>
       </div>
