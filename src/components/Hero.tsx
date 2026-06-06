@@ -80,7 +80,32 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{ background: "var(--brand-light)", minHeight: "100vh" }}
     >
-      {/* Hero image — bleeds from top of viewport, right side */}
+      {/* Hero image — full width on mobile (top half), right-side bleed on desktop */}
+      {/* MOBILE */}
+      <motion.div
+        className="absolute top-0 left-0 right-0 lg:hidden"
+        style={{ height: "52%" }}
+        initial={{ opacity: 0, scale: 1.06 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.4, ease: "easeOut" }}
+      >
+        <Image
+          src="/Hero Page Image.png"
+          alt="Premium Property"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute bottom-0 left-0 right-0 h-32" style={{
+          background: "linear-gradient(to top, var(--brand-light) 0%, transparent 100%)"
+        }} />
+        <div className="absolute top-0 left-0 right-0 h-20" style={{
+          background: "linear-gradient(to bottom, var(--brand-light) 0%, transparent 100%)"
+        }} />
+      </motion.div>
+
+      {/* DESKTOP */}
       <motion.div
         className="absolute top-0 bottom-0 right-0 hidden lg:block"
         style={{ width: "60%", y: imageY }}
@@ -109,7 +134,7 @@ export default function Hero() {
       {/* Left content */}
       <div className="relative max-w-[1440px] mx-auto px-6 lg:px-10 flex items-center" style={{ minHeight: "100vh" }}>
         <motion.div
-          className="relative z-10 pt-28 pb-16 max-w-[520px]"
+          className="relative z-10 pt-[52vw] sm:pt-[48vw] lg:pt-28 pb-16 max-w-[520px]"
           style={{ y: contentY }}
           variants={stagger}
           initial="hidden"
@@ -143,7 +168,7 @@ export default function Hero() {
           </motion.p>
 
           {/* Buttons */}
-          <motion.div variants={fadeUp} className="flex items-center gap-4 mb-12">
+          <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
             <motion.a
               href="#properties"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-sm font-semibold text-white"
@@ -167,6 +192,34 @@ export default function Hero() {
               </svg>
               Watch Video
             </motion.a>
+          </motion.div>
+
+          {/* Mobile trust widget — inline after buttons, hidden on desktop */}
+          <motion.div
+            variants={fadeUp}
+            className="lg:hidden rounded-2xl p-5 mb-8 w-full"
+            style={{
+              background: "rgba(13,27,42,0.88)",
+              backdropFilter: "blur(14px)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              boxShadow: "0 24px 64px rgba(0,0,0,0.3)",
+            }}
+          >
+            {[
+              { Icon: BadgeCheck, title: "Verified Properties", desc: "We ensure every property meets the highest standards." },
+              { Icon: UserCheck, title: "Expert Guidance", desc: "Get professional support at every step." },
+              { Icon: Lock, title: "Secure Transactions", desc: "Your investment is safe with us." },
+            ].map((item, i) => (
+              <div key={i} className={`flex gap-3 items-start ${i < 2 ? "pb-4 mb-4 border-b border-white/10" : ""}`}>
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(200,16,46,0.2)", color: "var(--brand-red)" }}>
+                  <item.Icon size={14} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-white mb-0.5" style={{ fontFamily: "var(--font-dm-sans)" }}>{item.title}</p>
+                  <p className="text-[11px] leading-snug" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-dm-sans)" }}>{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </motion.div>
 
           {/* Stats card */}
