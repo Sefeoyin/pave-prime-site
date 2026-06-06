@@ -80,11 +80,11 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{ background: "var(--brand-light)", minHeight: "100vh" }}
     >
-      {/* Hero image — full width on mobile (top half), right-side bleed on desktop */}
-      {/* MOBILE */}
+      {/* Hero image — mobile: below navbar banner; sm+: right-side bleed like desktop */}
+      {/* MOBILE ONLY */}
       <motion.div
-        className="absolute top-0 left-0 right-0 lg:hidden"
-        style={{ height: "52%" }}
+        className="absolute left-0 right-0 sm:hidden"
+        style={{ top: "80px", height: "420px" }}
         initial={{ opacity: 0, scale: 1.06 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.4, ease: "easeOut" }}
@@ -97,17 +97,14 @@ export default function Hero() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute bottom-0 left-0 right-0 h-32" style={{
+        <div className="absolute bottom-0 left-0 right-0 h-40" style={{
           background: "linear-gradient(to top, var(--brand-light) 0%, transparent 100%)"
-        }} />
-        <div className="absolute top-0 left-0 right-0 h-20" style={{
-          background: "linear-gradient(to bottom, var(--brand-light) 0%, transparent 100%)"
         }} />
       </motion.div>
 
-      {/* DESKTOP */}
+      {/* TABLET + DESKTOP: right-side bleed */}
       <motion.div
-        className="absolute top-0 bottom-0 right-0 hidden lg:block"
+        className="absolute top-0 bottom-0 right-0 hidden sm:block"
         style={{ width: "60%", y: imageY }}
         initial={{ opacity: 0, scale: 1.06 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -134,7 +131,7 @@ export default function Hero() {
       {/* Left content */}
       <div className="relative max-w-[1440px] mx-auto px-6 lg:px-10 flex items-center" style={{ minHeight: "100vh" }}>
         <motion.div
-          className="relative z-10 pt-[52vw] sm:pt-[48vw] lg:pt-28 pb-16 max-w-[520px]"
+          className="relative z-10 pt-[420px] sm:pt-28 pb-16 max-w-[520px]"
           style={{ y: contentY }}
           variants={stagger}
           initial="hidden"
@@ -161,8 +158,15 @@ export default function Hero() {
           {/* Paragraph */}
           <motion.p
             variants={fadeUp}
-            className="text-base leading-relaxed mb-8 max-w-[400px]"
-            style={{ color: "#4B5563", fontFamily: "var(--font-dm-sans)" }}
+            className="text-base leading-relaxed mb-8 max-w-[400px] sm:bg-transparent rounded-lg sm:p-0 sm:backdrop-blur-none"
+            style={{
+              color: "#4B5563",
+              fontFamily: "var(--font-dm-sans)",
+              background: "rgba(248,248,246,0.82)",
+              backdropFilter: "blur(6px)",
+              padding: "10px 12px",
+              borderRadius: "10px",
+            }}
           >
             At Pave Prime Realty, we help you find, own, and invest in properties that shape a better tomorrow.
           </motion.p>
@@ -197,7 +201,7 @@ export default function Hero() {
           {/* Mobile trust widget — inline after buttons, hidden on desktop */}
           <motion.div
             variants={fadeUp}
-            className="lg:hidden rounded-2xl p-5 mb-8 w-full"
+            className="sm:hidden rounded-2xl p-5 mb-8 w-full"
             style={{
               background: "rgba(13,27,42,0.88)",
               backdropFilter: "blur(14px)",
@@ -257,7 +261,7 @@ export default function Hero() {
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.9, ease: "easeOut", delay: 1.0 }}
-        className="hidden lg:block absolute right-8 xl:right-14"
+        className="hidden sm:block absolute right-8 xl:right-14"
         style={{ top: "50%", transform: "translateY(-20%)", zIndex: 10 }}
       >
         <div className="rounded-2xl p-5 w-[230px]" style={{
